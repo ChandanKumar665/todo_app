@@ -11,6 +11,18 @@ export default class Todo extends Component {
         }
     }
 
+    componentDidMount(){
+        console.log(11111)
+        // console.log(this.state.err)
+        // this.setState({err:'hey'})
+    }
+    componentDidUpdate(){
+        console.log(2222)
+    }
+    componentWillUnmount(){
+        console.log(3333)
+    }
+
     changeInput = (input) => {
         if(input !== '' && input !== null){
             this.setState({
@@ -82,7 +94,7 @@ export default class Todo extends Component {
                 <MDBInput 
                     label="Add Item" 
                     value={this.state.itemTitle} 
-                    onChange={(e)=> this.changeInput(e.target.value)}
+                    onChange={(e) => this.changeInput(e.target.value)}
                 />
                 <span style={{color:'red'}}>{this.state.err}</span>
             </MDBCol>
