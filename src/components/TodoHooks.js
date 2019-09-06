@@ -58,15 +58,15 @@ export default function TodoHooks() {
         )
     }
 
-    const Todo = ({todo}) => {
+    const Todo = ({todo, index}) => {
+        const [isCompleted, setIsCompleted] = useState({});
         return (
-               <li key={todo.index}>
-                    <label>{todo.title}</label> 
-                    <button style={{margin:'1rem'}} className="btn-danger" onClick = {() => deleteTodo(todo.id)}>Delete</button>
+               <li key={index}>
+                    <label style={isCompleted}><span style={{fontWeight:'700'}}>{todo.title}</span></label>
+                    <button style={{margin:'1rem'}} className="btn-primary" onClick={() => setIsCompleted({textDecoration:'line-through'})}>Completed</button> 
+                    <button style={{margin:'0.5rem'}} className="btn-danger" onClick = {() => deleteTodo(todo.id)}>Delete</button>
                </li> 
-
-        )
-        
+        )    
     }
 
     return (
